@@ -1,23 +1,19 @@
+import { age, name } from './bases/01-types'
+import { ids, pokemons } from './bases/02-objects'
+import { Ask, Ivysaur } from './bases/03-classes'
 import './style.css'
-import typescriptLogo from './typescript.svg'
-import { setupCounter } from './counter'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://www.typescriptlang.org/" target="_blank">
-      <img src="${typescriptLogo}" class="logo vanilla" alt="TypeScript logo" />
-    </a>
-    <h1>Vite + TypeScript</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite and TypeScript logos to learn more
-    </p>
+    <h2>TYPES</h2>
+    <p>Hello ${name} ${age}</p>
+
+    <h2>OBJECTS</h2>
+    <p>object array numbers: ${ids.join(',')}</p>
+    <p>first pokemon name: ${pokemons[0].name}</p>
+
+    <h2>CLASSES</h2>
+    <p>Ivysaur id: ${Ivysaur.id}</p>
+    <p>${Ask.name} ${Ask.lastname}</p>
   </div>
 `
-
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
