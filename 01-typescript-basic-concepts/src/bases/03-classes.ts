@@ -1,3 +1,4 @@
+import axios from 'axios'
 //constructor default method
 export class Pokemon {
     public readonly id: number;
@@ -23,11 +24,24 @@ export class Pokemon {
         console.log(`${this.name}, ${this.name}`)
         this.scream()
     }
+
+    //async method
+    async getMoves(): Promise<[]>{
+        const {data} = await axios.get(`https://pokeapi.co/api/v2/pokemon/${this.id}`)
+        
+        const moves: [] = data.moves || []
+
+        console.log(`moves: ${moves.length}`);
+        
+
+        return moves
+    }
 }
 
 export const Ivysaur = new Pokemon(2, "Ivysaur")
 Ivysaur.speak()
 //Ivysaur.scream() Error, its private method
+Ivysaur.getMoves()
 
 // constructor short method 
 export class Trainer {
