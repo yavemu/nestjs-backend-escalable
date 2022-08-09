@@ -14,6 +14,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 
     <h2>CLASSES</h2>
     <p>Ivysaur id: ${Ivysaur.id}</p>
+    <img src="${Ivysaur.imageUrl}"/>
     <p>${Ask.name} ${Ask.lastname}</p>
   </div>
 `
