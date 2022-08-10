@@ -2,6 +2,8 @@ import { age, name } from './bases/01-types'
 import { ids, pokemons } from './bases/02-objects'
 import { Ask, Ivysaur } from './bases/03-classes'
 import { charmander } from './bases/04-injection'
+import { psyduck } from './bases/05-decorators'
+import { dodrio } from './bases/06-decorators_2'
 import './style.css'
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
@@ -22,5 +24,10 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <h2>INJECTION</h2>
     <p>${charmander.name}</p>
     <img src="${charmander.imageUrl}"/>
+    <hr/>
+
+    <h2>DECORATORS</h2>
+    <p>${psyduck.name}</p>
+    <p>${dodrio.name}</p>
   </div>
 `
