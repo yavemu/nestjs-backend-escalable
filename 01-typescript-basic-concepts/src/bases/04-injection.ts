@@ -1,5 +1,5 @@
 import { Move, PokeAPIResponse } from '../interfaces/pokeapi-response.interface';
-import { PokeApiAdapter } from '../api/pokeApi.adapter';
+import { PokeApiAdapter, PokeApiFetchAdapter, IHttpAdapter } from '../api/pokeApi.adapter';
 
 export class Pokemon {
 
@@ -10,7 +10,7 @@ export class Pokemon {
     constructor(
         public readonly id: number, 
         public name: string,
-        private readonly httpClient: PokeApiAdapter //Dependency Inyection
+        private readonly httpClient: IHttpAdapter //Dependency Inyection + Liskov Substitution Principle
     ) {}
 
     scream() {
@@ -23,7 +23,7 @@ export class Pokemon {
 
     async getMoves(): Promise<Move[]> {
         const data = await this.httpClient.get<PokeAPIResponse>(`https://pokeapi.co/api/v2/pokemon/${this.id}`);
-        console.log( data.moves );
+        console.log(`${this.name} moves:`, data.moves);
         
         return data.moves;
     }
@@ -31,6 +31,10 @@ export class Pokemon {
 }
 
 const httpClientInstance = new PokeApiAdapter()
+const fetchClientInstance = new PokeApiFetchAdapter()
+
 export const charmander = new Pokemon( 4, 'Charmander', httpClientInstance );
+export const charmeleon = new Pokemon( 5, 'Charmeleon', fetchClientInstance );
 
 charmander.getMoves();
+charmeleon.getMoves();
