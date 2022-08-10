@@ -1,0 +1,3 @@
+[submodule "02-car-dealership"]
+	path = 02-car-dealership
+	url = git@github.com:yavemu/nestjs-backend-escalable.git
