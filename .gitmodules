@@ -2,3 +2,7 @@
 	path = 02-car-dealership
 	url = https://github.com/yavemu/02-car-dealership
 	branch = master
+[submodule "03-pokedex-mongo"]
+	path = 03-pokedex-mongo
+	url = https://github.com/yavemu/03-pokedex-mongo
+	branch = master
